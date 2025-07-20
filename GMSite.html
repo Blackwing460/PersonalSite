@@ -1,0 +1,1556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>George Molina - Game Developer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .smooth-scroll {
+            scroll-behavior: smooth;
+        }
+        
+        .nav-link {
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover {
+            transform: translateY(-2px);
+        }
+        
+        .section-fade {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+        
+        .section-fade.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page {
+            display: none;
+        }
+        
+        .page.active {
+            display: block;
+        }
+
+        .page-transition {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0.5rem;
+            width: 0.75rem;
+            height: 0.75rem;
+            background: #3b82f6;
+            border-radius: 50%;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: 0.375rem;
+            top: 1.25rem;
+            width: 2px;
+            height: calc(100% - 1rem);
+            background: #374151;
+        }
+
+        .timeline-item:last-child::after {
+            display: none;
+        }
+
+        /* Image placeholder styles */
+        .image-placeholder {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .image-placeholder::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        .image-placeholder-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            padding: 1rem;
+        }
+
+        .replace-instructions {
+            background: rgba(255, 193, 7, 0.1);
+            border: 1px solid rgba(255, 193, 7, 0.3);
+            border-radius: 0.5rem;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            font-size: 0.875rem;
+            color: #fbbf24;
+        }
+    </style>
+</head>
+<body class="bg-gray-900 text-gray-100 smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-gray-800/95 backdrop-blur-sm border-b border-gray-700 z-50">
+        <div class="max-w-6xl mx-auto px-6 py-5">
+            <div class="flex justify-between items-center">
+                <div class="text-2xl font-bold gradient-text cursor-pointer" onclick="showPage('home')">
+                    George Molina
+                </div>
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" onclick="showPage('home')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Home</a>
+                    <a href="#" onclick="showPage('experience')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Experience</a>
+                    <a href="#" onclick="showPage('bandit')" class="nav-link text-gray-300 hover:text-red-400 font-medium">Bandit Studio</a>
+                    <a href="#" onclick="showPage('interactive')" class="nav-link text-gray-300 hover:text-green-400 font-medium">Interactive Tech</a>
+                    <a href="#" onclick="showPage('gamejam')" class="nav-link text-gray-300 hover:text-orange-400 font-medium">Game Jam</a>
+                    <a href="#" onclick="showPage('contact')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-blue-400">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                    </svg>
+                </button>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4 pb-4 border-t border-gray-700">
+                <div class="flex flex-col space-y-3 pt-4">
+                    <a href="#" onclick="showPage('home')" class="text-gray-300 hover:text-blue-400 font-medium">Home</a>
+                    <a href="#" onclick="showPage('experience')" class="text-gray-300 hover:text-blue-400 font-medium">Experience</a>
+                    <a href="#" onclick="showPage('bandit')" class="text-gray-300 hover:text-blue-400 font-medium">Bandit Studio</a>
+                    <a href="#" onclick="showPage('interactive')" class="text-gray-300 hover:text-blue-400 font-medium">Interactive Tech</a>
+                    <a href="#" onclick="showPage('gamejam')" class="text-gray-300 hover:text-blue-400 font-medium">Game Jam</a>
+                    <a href="#" onclick="showPage('contact')" class="text-gray-300 hover:text-blue-400 font-medium">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HOME PAGE -->
+    <div id="home-page" class="page active">
+        <!-- Hero Section -->
+        <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900">
+            <div class="max-w-4xl mx-auto px-6 text-center section-fade visible">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-relaxed pb-2">
+                    George Molina
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
+                    Multidisciplinary game developer creating immersive, player-driven experiences across AR, VR, and traditional platforms
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+                    <button onclick="showPage('experience')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
+                        View My Experience
+                    </button>
+                    <button onclick="showPage('contact')" class="border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300">
+                        Get In Touch
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Organizations Section -->
+        <section class="py-20 bg-gray-800">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 gradient-text">My Organizations</h2>
+                <div class="grid md:grid-cols-3 gap-8">
+                    <!-- Bandit Game Studio Card -->
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('bandit')">
+                        <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
+                            <img src="https://app.milanote.com/media/p/images/1UBysa1Fh6Mf6q/U0K/Bandit.svg" width="40%" height="40%" alt="Logo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-red-400">Bandit Game Studio</h3>
+                            <p class="text-gray-300 mb-4">A student-led game development studio at UTEP, founded and managed by students across disciplines. With 200+ members over the years, Bandit offers real-world experience, collaboration, and community impact.</p>
+                            <span class="text-red-400 hover:text-red-300 font-medium">View Studio →</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Technologies Card -->
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('interactive')">
+                        <div class="h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
+                            <img src="https://app.milanote.com/media/p/images/1UByWS1Fh6Mf6r/Hva/IT%20white.svg" width="40%" height="40%" alt="Logo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-green-400">Interactive Technologies</h3>
+                            <p class="text-gray-300 mb-4">A development team within UTEP’s Learning Environments that builds interactive applications and games for teaching and outreach. Projects support faculty, enhance courses, and explore new ways to engage learners.</p>
+                            <span class="text-green-400 hover:text-green-300 font-medium">View Projects →</span>
+                        </div>
+                    </div>
+
+                    <!-- Borderland Glitch Game Jam Card -->
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('gamejam')">
+                        <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
+                             <img src="https://app.milanote.com/media/p/images/1UBz1K1Fh6Mf6s/GSU/BG.svg" width="50%" height="50%" alt="Logo">
+                        </div>
+                        <div class="p-6">
+                            <h3 class="text-xl font-semibold mb-2 text-orange-400">Borderland Glitch Game Jam</h3>
+                            <p class="text-gray-300 mb-4">An annual game jam bringing people from all over to create and play games. Now three years running, the event features industry guests, workshops, and a surprise theme resulting in unique, community-created games and lasting collaborations.</p>
+                            <span class="text-orange-400 hover:text-orange-300 font-medium">View Event →</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Skills Overview -->
+        <section class="py-20 bg-gray-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-center mb-12 gradient-text">Technical Expertise</h2>
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-blue-400 mb-2">Unity & C#</h3>
+                        <p class="text-gray-400 text-sm">VR/AR/Mobile Development</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M21,16.5C21,16.88 20.79,17.21 20.47,17.38L12.57,21.82C12.41,21.94 12.21,22 12,22C11.79,22 11.59,21.94 11.43,21.82L3.53,17.38C3.21,17.21 3,16.88 3,16.5V7.5C3,7.12 3.21,6.79 3.53,6.62L11.43,2.18C11.59,2.06 11.79,2 12,2C12.21,2 12.41,2.06 12.57,2.18L20.47,6.62C20.79,6.79 21,7.12 21,7.5V16.5M12,4.15L6.04,7.5L12,10.85L17.96,7.5L12,4.15Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-green-400 mb-2">XR Technologies</h3>
+                        <p class="text-gray-400 text-sm">Oculus, HoloLens, Motion Capture</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2L13.09,8.26L22,9L13.09,9.74L12,16L10.91,9.74L2,9L10.91,8.26L12,2Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-green-400 mb-2">Leadership</h3>
+                        <p class="text-gray-400 text-sm">Studio Management, Mentorship</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,3L1,9L12,15L21,10.09V17H23V9M5,13.18V17.18L12,21L19,17.18V13.18L12,17L5,13.18Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-lg font-semibold text-yellow-400 mb-2">Event Production</h3>
+                        <p class="text-gray-400 text-sm">Game Jams, AV Systems</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- EXPERIENCE PAGE -->
+    <div id="experience-page" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">Professional Experience</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        A comprehensive overview of my professional journey, education, certifications, and technical expertise
+                    </p>
+                </div>
+
+                <!-- Work Experience -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-12 text-center">Work Experience</h2>
+                    <div class="space-y-12">
+                        <!-- Enterprise AV Support Specialist -->
+                        <div class="timeline-item bg-gray-800 rounded-lg p-8">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-blue-400">Enterprise AV Support Specialist</h3>
+                                    <p class="text-xl text-gray-300">University of Texas at El Paso</p>
+                                </div>
+                                <span class="text-gray-400 font-medium mt-2 md:mt-0">Dec 2023 – Present</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Lead interactive development and event coordination across classrooms, makerspaces, and AV-integrated spaces</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Designed and implemented Unity-based AR and VR experiences including a multiplayer VR theater, virtual museum, and AR-driven AV consultation tools</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Co-lead of an internal department delivering immersive, research-aligned applications using Unity and C#</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Developed PHP-based internal systems connecting Airtable with 3DPrinterOS to streamline 3D print management</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Built databases and tracking tools in Airtable and Milanote to manage inventory, project timelines, and approval workflows</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Contributed to AV interface design for dual-screen workflows using Extron and Q-SYS systems with encoder/decoder configurations</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-blue-400 mr-3 mt-1">•</span>
+                                    <span>Coordinated event support with multiple stakeholders, ensuring reliable AV performance and technical readiness</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Founder & Studio Director -->
+                        <div class="timeline-item bg-gray-800 rounded-lg p-8">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-green-400">Founder & Studio Director</h3>
+                                    <p class="text-xl text-gray-300">Bandit Game Studio</p>
+                                </div>
+                                <span class="text-gray-400 font-medium mt-2 md:mt-0">Jul 2020 – Present</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-green-400 mr-3 mt-1">•</span>
+                                    <span>Founded and lead a student game studio with 100+ active members across design, programming, art, and production disciplines</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-400 mr-3 mt-1">•</span>
+                                    <span>Mentored students and led project teams through full development cycles, from concept to deployment</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-400 mr-3 mt-1">•</span>
+                                    <span>Built studio pipelines for collaboration, asset management, and interdisciplinary training</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-400 mr-3 mt-1">•</span>
+                                    <span>Directed Unity-based projects in XR, mobile, and desktop formats, focusing on usability and creative experimentation</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-400 mr-3 mt-1">•</span>
+                                    <span>Oversaw client-driven development work before Interactive Technologies was established in 2023</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Co-Founder & Lead Organizer -->
+                        <div class="timeline-item bg-gray-800 rounded-lg p-8">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-red-400">Co-Founder & Lead Organizer</h3>
+                                    <p class="text-xl text-gray-300">Borderland Glitch Game Jam</p>
+                                </div>
+                                <span class="text-gray-400 font-medium mt-2 md:mt-0">Apr 2022 – Present</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-3 mt-1">•</span>
+                                    <span>Co-created and organize an annual 3-day game development event growing from 50 to 160+ participants in 3 years</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-3 mt-1">•</span>
+                                    <span>Lead planning, scheduling, speaker outreach, and branding; promoted to over 10,000 students</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-3 mt-1">•</span>
+                                    <span>Hosted industry speakers from Schell Games (Jesse Schell), Unity (Thomas Winkley), Strange Scaffold (Xalavier Nelson Jr.), LocalThunk, and Insomniac (Jenna Ruth)</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-3 mt-1">•</span>
+                                    <span>Facilitated workshops and technical support in partnership with internal university teams and sponsors</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Undergraduate Research Assistant -->
+                        <div class="timeline-item bg-gray-800 rounded-lg p-8">
+                            <div class="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                                <div>
+                                    <h3 class="text-2xl font-bold text-purple-400">Undergraduate Research Assistant</h3>
+                                    <p class="text-xl text-gray-300">University of Texas at El Paso</p>
+                                </div>
+                                <span class="text-gray-400 font-medium mt-2 md:mt-0">Jan 2020 – Present</span>
+                            </div>
+                            <ul class="space-y-3 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-3 mt-1">•</span>
+                                    <span>Designed and developed a bilingual educational game to teach STEM subjects using Unity and C#</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-3 mt-1">•</span>
+                                    <span>Built user interfaces and 3D assets to support English and Spanish learning paths</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-3 mt-1">•</span>
+                                    <span>Implemented MongoDB data collection for in-class research and gameplay feedback</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-purple-400 mr-3 mt-1">•</span>
+                                    <span>Conducted iterative classroom testing and integrated user insights to refine gameplay</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">Education</h2>
+                    <div class="bg-gray-800 rounded-lg p-8">
+                        <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-400 mb-2">Bachelor of Science in Computer Science</h3>
+                                <p class="text-xl text-gray-300 mb-2">The University of Texas at El Paso</p>
+                                <p class="text-gray-400">GPA: 3.06</p>
+                            </div>
+                            <span class="text-gray-400 font-medium mt-2 md:mt-0">Graduated: December 2023</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Certifications -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">Certifications</h2>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-blue-400">Unity Certified User VR Developer</h3>
+                                    <p class="text-gray-400 text-sm">Unity | 2021</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-green-400">Autodesk Maya Certified User</h3>
+                                    <p class="text-gray-400 text-sm">Autodesk | April 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-red-400">Certified Associate in Visual Design</h3>
+                                    <p class="text-gray-400 text-sm">Adobe Photoshop | May 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="flex items-center mb-4">
+                                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                                    <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                    </svg>
+                                </div>
+                                <div>
+                                    <h3 class="text-lg font-semibold text-purple-400">Certified Associate in Visual Effects</h3>
+                                    <p class="text-gray-400 text-sm">Adobe After Effects | May 2019</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Skills -->
+                <div class="mb-20">
+                    <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">Technical Skills</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- Game Engines & Development -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-blue-400 mb-4">Game Engines & Development</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-sm">Unity</span>
+                                    <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-sm">C#</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Level Design</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Game Design</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Unity Animator</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">UI Toolkit</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Shader Graph</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Git/GitHub</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Programming & Scripting -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-green-400 mb-4">Programming & Scripting</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded text-sm">C#</span>
+                                    <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded text-sm">C</span>
+                                    <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded text-sm">Python</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Java</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">JavaScript</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">PHP</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">HTML/CSS</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">MongoDB</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- XR & Makerspace Systems -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-purple-400 mb-4">XR & Makerspace Systems</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded text-sm">Oculus Quest 1/2</span>
+                                    <span class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded text-sm">HoloLens 2</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Xsens Motion Capture</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Rokoko</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">3D Printing</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Laser Engraving</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 3D Modeling & Art -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-yellow-400 mb-4">3D Modeling & Art</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded text-sm">Autodesk Maya</span>
+                                    <span class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded text-sm">Fusion 360</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Adobe Photoshop</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Illustrator</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">After Effects</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Premiere Pro</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- AV & Event Technology -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-red-400 mb-4">AV & Event Technology</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-sm">Q-SYS</span>
+                                    <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-sm">Extron</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">OBS</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Streamlabs</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Dante Controller</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Teams/Zoom</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Production Tools -->
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-indigo-400 mb-4">Production Tools</h3>
+                            <div class="space-y-2">
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-indigo-600/20 text-indigo-400 px-2 py-1 rounded text-sm">Milanote</span>
+                                    <span class="bg-indigo-600/20 text-indigo-400 px-2 py-1 rounded text-sm">Airtable</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">3DPrinterOS</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Tinkercad</span>
+                                </div>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Wacom Tablet</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">CNC Systems</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Education -->
+                        <div class="mb-20">
+                            <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">Education</h2>
+                            <div class="bg-gray-800 rounded-lg p-8">
+                                <div class="flex flex-col md:flex-row md:justify-between md:items-start">
+                                    <div>
+                                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Bachelor of Science in Computer Science</h3>
+                                        <p class="text-xl text-gray-300 mb-2">The University of Texas at El Paso</p>
+                                        <p class="text-gray-400">GPA: 3.06</p>
+                                    </div>
+                                    <span class="text-gray-400 font-medium mt-2 md:mt-0">Graduated: December 2023</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BANDIT GAME STUDIO PAGE -->
+    <div id="bandit-page" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-red-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-red-400">Bandit Game Studio</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Founded and leading a thriving student game development community with 100+ active members, 
+                        fostering the next generation of game developers through mentorship and hands-on experience.
+                    </p>
+                </div>
+
+                <!-- Key Stats -->
+                <div class="grid md:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-red-400 mb-2">100+</div>
+                        <div class="text-gray-300">Active Members</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-red-400 mb-2">4+</div>
+                        <div class="text-gray-300">Years Running</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-red-400 mb-2">50+</div>
+                        <div class="text-gray-300">Games Created</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-red-400 mb-2">6</div>
+                        <div class="text-gray-300">Departments</div>
+                    </div>
+                </div>
+
+                <!-- Mission & Impact -->
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div>
+                        <h2 class="text-3xl font-bold text-red-400 mb-6">Our Mission</h2>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Bandit Game Studio exists to bridge the gap between academic learning and industry practice. 
+                            We provide students with real-world game development experience, mentorship, and a supportive 
+                            community to grow their skills.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            Through collaborative projects, workshops, and peer learning, we've helped dozens of students 
+                            land internships and full-time positions in the gaming industry.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-red-400 mb-6">How We Work</h2>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Weekly department meetings for learning and collaboration</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Director-led mentorship in each specialized department</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Cross-departmental game development projects</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Industry connections and networking opportunities</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-red-400 mr-2">•</span>
+                                <span>Portfolio development and career guidance</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Studio Structure -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">Studio Departments</h2>
+                    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A2,2 0 0,1 14,4V8A2,2 0 0,1 12,10A2,2 0 0,1 10,8V4A2,2 0 0,1 12,2M21,9V7H15V9H21M21,11H15V13H21V11M21,15H15V17H21V15M9,9V7H3V9H9M9,11H3V13H9V11M9,15H3V17H9V15Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Creative</h3>
+                            <p class="text-gray-300 text-sm">Art direction, storytelling, narrative design, and visual concept development</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,20A8,8 0 0,1 4,12A8,8 0 0,1 12,4A8,8 0 0,1 20,12A8,8 0 0,1 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Level Design</h3>
+                            <p class="text-gray-300 text-sm">Gamification, level design, and game engine implementation</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M8,3A2,2 0 0,0 6,5V9A2,2 0 0,1 4,11H3V13H4A2,2 0 0,1 6,15V19A2,2 0 0,0 8,21H10V19H8V14A2,2 0 0,0 6,12A2,2 0 0,0 8,10V5H10V3H8M16,3A2,2 0 0,1 18,5V9A2,2 0 0,0 20,11H21V13H20A2,2 0 0,0 18,15V19A2,2 0 0,1 16,21H14V19H16V14A2,2 0 0,1 18,12A2,2 0 0,1 16,10V5H14V3H16Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Technical</h3>
+                            <p class="text-gray-300 text-sm">Programming gameplay mechanics, accessibility features, and system architecture</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Animation</h3>
+                            <p class="text-gray-300 text-sm">3D modeling, texturing, character animation, and visual effects</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M14,3.23V5.29C16.89,6.15 19,8.83 19,12C19,15.17 16.89,17.85 14,18.71V20.77C18,19.86 21,16.28 21,12C21,7.72 18,4.14 14,3.23M16.5,12C16.5,10.23 15.5,8.71 14,7.97V16C15.5,15.29 16.5,13.76 16.5,12M3,9V15H7L12,20V4L7,9H3Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Audio</h3>
+                            <p class="text-gray-300 text-sm">Sound design, music composition, voice acting, and audio implementation</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <div class="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center mb-4">
+                                <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18,16.08C17.24,16.08 16.56,16.38 16.04,16.85L8.91,12.7C8.96,12.47 9,12.24 9,12C9,11.76 8.96,11.53 8.91,11.3L15.96,7.19C16.5,7.69 17.21,8 18,8A3,3 0 0,0 21,5A3,3 0 0,0 18,2A3,3 0 0,0 15,5C15,5.24 15.04,5.47 15.09,5.7L8.04,9.81C7.5,9.31 6.79,9 6,9A3,3 0 0,0 3,12A3,3 0 0,0 6,15C6.79,15 7.5,14.69 8.04,14.19L15.16,18.34C15.11,18.55 15.08,18.77 15.08,19C15.08,20.61 16.39,21.91 18,21.91C19.61,21.91 20.92,20.61 20.92,19A2.92,2.92 0 0,0 18,16.08Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-red-400 mb-2">Marketing</h3>
+                            <p class="text-gray-300 text-sm">Social media management, branding, promotional content, and studio outreach</p>
+                        </div>
+                    </div>
+                    <div class="text-center mt-6">
+                        <p class="text-gray-300 text-sm">Each department has dedicated directors who mentor members through weekly meetings focused on learning and collaborative project work.</p>
+                    </div>
+                </div>
+
+                <!-- Student Success Stories -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">Student Impact & Success</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-red-400 mb-4">Industry Recognition</h3>
+                            <p class="text-gray-300 mb-4">
+                                Our students have impressed recruiters and hiring managers across the tech industry. 
+                                We've received feedback that Bandit Studio experience stands out on resumes and in interviews, 
+                                though we can't claim full credit for their individual achievements.
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Alumni working at Microsoft, Google, and other major tech companies</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Recruiters specifically praising Bandit Studio experience</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Students landing both technical and non-technical roles</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <h3 class="text-xl font-semibold text-red-400 mb-4">Cross-Disciplinary Growth</h3>
+                            <p class="text-gray-300 mb-4">
+                                Students from all corners of the university join Bandit Studio, bringing diverse perspectives 
+                                and skills that enrich our collaborative environment.
+                            </p>
+                            <ul class="space-y-2 text-gray-300">
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Computer Science, Art, Music, and Engineering students</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Real-world project management experience</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-400 mr-2">•</span>
+                                    <span>Portfolio development across multiple disciplines</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Studio Projects -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">Featured Studio Projects</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <!-- GAIA Tours AR App -->
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- 🖼️ REPLACE THIS: Add your GAIA Tours screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="GAIA Tours AR App" class="w-full h-64 object-cover"> -->
+                            <div class="h-64 bg-gradient-to-br from-red-600 to-purple-800 flex items-center justify-center relative">
+                                <div class="text-center">
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">📱 GAIA Tours AR</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your app screenshot</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-2 right-2 bg-green-600 text-white px-2 py-1 rounded text-xs">
+                                    Evolved to Interactive Tech
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-red-400 mb-2">GAIA Tours AR Application</h3>
+                                <p class="text-gray-300 mb-4">
+                                    An augmented reality application developed for the GAIA Makerspace that provides interactive tours 
+                                    and educational experiences. Originally started as a Bandit Studio project, it evolved into a full 
+                                    Interactive Technologies initiative, showcasing our pipeline from student projects to professional applications.
+                                </p>
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-semibold text-red-400 mb-2">Key Features:</h4>
+                                    <ul class="text-sm text-gray-300 space-y-1">
+                                        <li>• Interactive AR tours of makerspace equipment</li>
+                                        <li>• Educational overlays and equipment information</li>
+                                        <li>• Multi-platform deployment (iOS/Android)</li>
+                                        <li>• Integration with makerspace booking systems</li>
+                                    </ul>
+                                </div>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-sm">Unity</span>
+                                    <span class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded text-sm">ARCore/ARKit</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">C#</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Mobile</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Project Nova VR Game -->
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- 🖼️ REPLACE THIS: Add your Project Nova screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="Project Nova VR Game" class="w-full h-64 object-cover"> -->
+                            <div class="h-64 bg-gradient-to-br from-red-600 to-pink-800 flex items-center justify-center relative">
+                                <div class="text-center">
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">🎮 Project Nova</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your VR game screenshot</p>
+                                    </div>
+                                </div>
+                                <div class="absolute top-2 right-2 bg-yellow-600 text-white px-2 py-1 rounded text-xs">
+                                    Ongoing Project
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-red-400 mb-2">Project Nova - VR Story Game</h3>
+                                <p class="text-gray-300 mb-4">
+                                    Our most ambitious ongoing project, Project Nova is a collaborative VR storytelling experience 
+                                    that showcases the full range of our studio departments. This immersive narrative adventure 
+                                    demonstrates advanced VR interaction mechanics and original storytelling developed entirely by student teams.
+                                </p>
+                                <div class="mb-4">
+                                    <h4 class="text-sm font-semibold text-red-400 mb-2">Development Highlights:</h4>
+                                    <ul class="text-sm text-gray-300 space-y-1">
+                                        <li>• All 6 departments collaborating on single project</li>
+                                        <li>• Advanced VR interaction and physics systems</li>
+                                        <li>• Original narrative with branching storylines</li>
+                                        <li>• Custom audio design and musical score</li>
+                                        <li>• Innovative marketing and community engagement</li>
+                                    </ul>
+                                </div>
+                                <div class="flex gap-2 flex-wrap">
+                                    <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-sm">Unity VR</span>
+                                    <span class="bg-pink-600/20 text-pink-400 px-2 py-1 rounded text-sm">Oculus Quest</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Narrative Design</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">3D Art</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Evolution -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">From Studio to Industry</h2>
+                    <div class="bg-gray-800 rounded-lg p-8">
+                        <div class="text-center mb-6">
+                            <h3 class="text-2xl font-semibold text-red-400 mb-4">The GAIA Tours Success Story</h3>
+                            <p class="text-gray-300 leading-relaxed max-w-4xl mx-auto">
+                                GAIA Tours exemplifies our studio's mission: providing students with real-world development experience 
+                                that leads to professional opportunities. What began as a student-led project in Bandit Studio evolved 
+                                into a full-scale Interactive Technologies application, demonstrating our pipeline from learning to professional deployment.
+                            </p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-6 mt-8">
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-white font-bold">1</span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-red-400 mb-2">Studio Concept</h4>
+                                <p class="text-gray-300 text-sm">Student team identifies need for AR makerspace tours</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-white font-bold">2</span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-red-400 mb-2">Collaborative Development</h4>
+                                <p class="text-gray-300 text-sm">Cross-departmental teams build functional prototype</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <span class="text-white font-bold">3</span>
+                                </div>
+                                <h4 class="text-lg font-semibold text-red-400 mb-2">Professional Deployment</h4>
+                                <p class="text-gray-300 text-sm">Project transitions to Interactive Technologies for full implementation</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- INTERACTIVE TECHNOLOGIES PAGE -->
+    <div id="interactive-page" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-green-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-green-400">Interactive Technologies</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Creating cutting-edge educational applications in VR and AR, transforming how students learn 
+                        engineering, reading, and rhetoric through immersive experiences.
+                    </p>
+                </div>
+
+                <!-- Project Categories -->
+                <div class="grid md:grid-cols-3 gap-8 mb-16">
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12,2A3,3 0 0,1 15,5V11A3,3 0 0,1 12,14A3,3 0 0,1 9,11V5A3,3 0 0,1 12,2M19,11C19,14.53 16.39,17.44 13,17.93V21H11V17.93C7.61,17.44 5,14.53 5,11H7A5,5 0 0,0 12,16A5,5 0 0,0 17,11H19Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-400 mb-2">VR Museum</h3>
+                        <p class="text-gray-300 text-sm">Immersive virtual museum experiences for educational content</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M18,3V5H22V7H18V9L13,7L18,5M6,3V5H2V7H6V9L11,7L6,5M12,10A2,2 0 0,1 14,12A2,2 0 0,1 12,14A2,2 0 0,1 10,12A2,2 0 0,1 12,10M21,10V12H19V14H17V12H15V10H17V8H19V10H21M9,10V12H7V14H5V12H3V10H5V8H7V10H9Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-400 mb-2">VR Theater</h3>
+                        <p class="text-gray-300 text-sm">Multiplayer virtual theater for collaborative learning experiences</p>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z"/>
+                            </svg>
+                        </div>
+                        <h3 class="text-xl font-semibold text-green-400 mb-2">AR Learning Tools</h3>
+                        <p class="text-gray-300 text-sm">Augmented reality applications for engineering and reading classes</p>
+                    </div>
+                </div>
+
+                <!-- VR Museum Project -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">VR Museum Experience</h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <div>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Developed an immersive virtual museum that allows students to explore historical artifacts, 
+                                scientific concepts, and cultural exhibits in a fully interactive 3D environment. The experience 
+                                supports multiple users simultaneously and includes guided tours with educational narration.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Multi-user VR support for collaborative learning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Interactive 3D artifacts with detailed information</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Guided educational tours and self-exploration modes</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Cross-platform compatibility (Oculus, HoloLens)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- 🖼️ REPLACE THIS: Add your VR Museum screenshot here -->
+                        <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="VR Museum Experience" class="w-full h-64 object-cover rounded-lg"> -->
+                        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 flex items-center justify-center">
+                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                <p class="text-white font-semibold text-lg">🏛️ VR Museum</p>
+                                <p class="text-white/80 text-sm mt-2">Replace with your VR museum screenshot</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VR Theater Project -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">Multiplayer VR Theater</h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- 🖼️ REPLACE THIS: Add your VR Theater screenshot here -->
+                        <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="VR Theater Experience" class="w-full h-64 object-cover rounded-lg"> -->
+                        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 flex items-center justify-center">
+                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                <p class="text-white font-semibold text-lg">🎭 VR Theater</p>
+                                <p class="text-white/80 text-sm mt-2">Replace with your VR theater screenshot</p>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Created a virtual theater environment where students can gather to watch educational content, 
+                                participate in discussions, and engage in collaborative learning activities. The system supports 
+                                real-time voice communication and shared viewing experiences.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Synchronized video playback for group viewing</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Real-time voice chat and spatial audio</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Interactive presentation tools for educators</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Customizable theater environments</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AR Learning Tools -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">AR Educational Applications</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <!-- 🖼️ REPLACE THIS: Add your Engineering AR app screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="Engineering AR App" class="w-full h-48 object-cover rounded-lg mb-4"> -->
+                            <div class="h-48 bg-gradient-to-br from-green-600 to-green-800 rounded-lg mb-4 flex items-center justify-center">
+                                <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                    <p class="text-white font-semibold">⚙️ Engineering AR</p>
+                                    <p class="text-white/80 text-xs mt-1">Add your screenshot</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-green-400 mb-3">Engineering Visualization</h3>
+                            <p class="text-gray-300 mb-4">
+                                AR application that overlays 3D engineering models onto real-world objects, helping students 
+                                understand complex mechanical systems and structural designs.
+                            </p>
+                            <div class="flex gap-2">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Unity</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">ARCore</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">iOS/Android</span>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6">
+                            <!-- 🖼️ REPLACE THIS: Add your Reading AR app screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="Reading AR App" class="w-full h-48 object-cover rounded-lg mb-4"> -->
+                            <div class="h-48 bg-gradient-to-br from-green-600 to-green-800 rounded-lg mb-4 flex items-center justify-center">
+                                <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                    <p class="text-white font-semibold">📚 Reading AR</p>
+                                    <p class="text-white/80 text-xs mt-1">Add your screenshot</p>
+                                </div>
+                            </div>
+                            <h3 class="text-xl font-semibold text-green-400 mb-3">Interactive Reading</h3>
+                            <p class="text-gray-300 mb-4">
+                                AR reading companion that brings stories to life with 3D characters and interactive elements, 
+                                enhancing comprehension and engagement for rhetoric and literature classes.
+                            </p>
+                            <div class="flex gap-2">
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Unity</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">ARKit</span>
+                                <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">3D Animation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Technical Implementation -->
+                <div class="bg-gray-800 rounded-lg p-8">
+                    <h2 class="text-3xl font-bold text-green-400 mb-6">Technical Implementation</h2>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <div>
+                            <h3 class="text-lg font-semibold text-green-400 mb-3">Development Stack</h3>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Unity 3D Engine</li>
+                                <li>• C# Programming</li>
+                                <li>• XR Toolkit</li>
+                                <li>• Photon Networking</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-green-400 mb-3">Hardware Support</h3>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Oculus Quest 1/2</li>
+                                <li>• HoloLens 2</li>
+                                <li>• iOS/Android Devices</li>
+                                <li>• Motion Tracking Systems</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-green-400 mb-3">Key Features</h3>
+                            <ul class="text-gray-300 space-y-2 text-sm">
+                                <li>• Multi-user Support</li>
+                                <li>• Real-time Collaboration</li>
+                                <li>• Educational Analytics</li>
+                                <li>• Cross-platform Deployment</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- BORDERLAND GLITCH GAME JAM PAGE -->
+    <div id="gamejam-page" class="page">
+        <section class="pt-24 pb-20 bg-gradient-to-br from-gray-900 via-gray-800 to-orange-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 text-orange-400">Borderland Glitch Game Jam</h1>
+                    <p class="text-xl text-gray-300 max-w-3xl mx-auto">
+                        Co-founded and organized an annual 3-day game development event that has grown from 50 to 160+ participants, 
+                        featuring industry speakers and creating amazing games that push creative boundaries.
+                    </p>
+                </div>
+
+                <!-- Event Growth Stats -->
+                <div class="grid md:grid-cols-4 gap-6 mb-16">
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">3</div>
+                        <div class="text-gray-300">Years Running</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">160+</div>
+                        <div class="text-gray-300">Peak Participants</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">50+</div>
+                        <div class="text-gray-300">Games Created</div>
+                    </div>
+                    <div class="bg-gray-800 rounded-lg p-6 text-center">
+                        <div class="text-3xl font-bold text-orange-400 mb-2">10+</div>
+                        <div class="text-gray-300">Industry Speakers</div>
+                    </div>
+                </div>
+
+                <!-- Event Overview -->
+                <div class="grid md:grid-cols-2 gap-12 mb-16">
+                    <div>
+                        <h2 class="text-3xl font-bold text-orange-400 mb-6">Event Vision</h2>
+                        <p class="text-gray-300 mb-4 leading-relaxed">
+                            Borderland Glitch Game Jam was created to bring together game developers, artists, designers, 
+                            and enthusiasts from across the region for an intensive weekend of creativity and collaboration. 
+                            Our goal is to foster innovation and push the boundaries of what's possible in game development.
+                        </p>
+                        <p class="text-gray-300 leading-relaxed">
+                            What started as a small local event has grown into one of the premier game jams in the Southwest, 
+                            attracting participants from multiple states and featuring speakers from major game studios.
+                        </p>
+                    </div>
+                    <div>
+                        <h2 class="text-3xl font-bold text-orange-400 mb-6">My Role</h2>
+                        <ul class="space-y-3 text-gray-300">
+                            <li class="flex items-start">
+                                <span class="text-orange-400 mr-2">•</span>
+                                <span>Co-founded the event and established its core vision</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-orange-400 mr-2">•</span>
+                                <span>Lead organizer responsible for logistics and coordination</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-orange-400 mr-2">•</span>
+                                <span>Secured industry speakers and sponsorship partnerships</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-orange-400 mr-2">•</span>
+                                <span>Managed event technology and streaming infrastructure</span>
+                            </li>
+                            <li class="flex items-start">
+                                <span class="text-orange-400 mr-2">•</span>
+                                <span>Mentored participants and judged final submissions</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Industry Speakers -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-orange-400 mb-8">Industry Speakers & Partners</h2>
+                    <div class="grid md:grid-cols-4 gap-6">
+                        <div class="bg-gray-800 rounded-lg p-6 text-center">
+                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-orange-400 mb-2">Schell Games</h3>
+                            <p class="text-gray-300 text-sm">VR/AR Development Insights</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6 text-center">
+                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-orange-400 mb-2">Unity Technologies</h3>
+                            <p class="text-gray-300 text-sm">Engine Development & Tools</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6 text-center">
+                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-orange-400 mb-2">Strange Scaffold</h3>
+                            <p class="text-gray-300 text-sm">Indie Game Development</p>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg p-6 text-center">
+                            <div class="w-16 h-16 bg-orange-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z"/>
+                                </svg>
+                            </div>
+                            <h3 class="text-lg font-semibold text-orange-400 mb-2">Insomniac Games</h3>
+                            <p class="text-gray-300 text-sm">AAA Game Production</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Timeline -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-orange-400 mb-8">Event Growth Timeline</h2>
+                    <div class="space-y-8">
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-orange-600 rounded-full mr-6"></div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-orange-400">Year 1 (2022)</h3>
+                                <p class="text-gray-300">Launched with 50 participants, established core event structure and local partnerships.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-orange-600 rounded-full mr-6"></div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-orange-400">Year 2 (2023)</h3>
+                                <p class="text-gray-300">Grew to 100+ participants, added industry speakers and expanded to multi-day format.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center">
+                            <div class="w-4 h-4 bg-orange-600 rounded-full mr-6"></div>
+                            <div class="flex-1">
+                                <h3 class="text-xl font-semibold text-orange-400">Year 3 (2024)</h3>
+                                <p class="text-gray-300">Reached 160+ participants, featured major studio speakers and international participants.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Featured Games -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-center text-orange-400 mb-8">Award-Winning Games</h2>
+                    <div class="grid md:grid-cols-3 gap-8">
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- 🖼️ REPLACE THIS: Add your winning game screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="Best Overall Game 2024" class="w-full h-48 object-cover"> -->
+                            <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
+                                <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                    <p class="text-white font-semibold">🏆 Best Game 2024</p>
+                                    <p class="text-white/80 text-xs mt-1">Add game screenshot</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-orange-400 mb-2">Best Overall Game 2024</h3>
+                                <p class="text-gray-300 mb-4">Placeholder for winning game description and team information.</p>
+                                <div class="flex gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Unity</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">2D</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- 🖼️ REPLACE THIS: Add your innovative game screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="Most Innovative Game 2023" class="w-full h-48 object-cover"> -->
+                            <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
+                                <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                    <p class="text-white font-semibold">💡 Most Innovative</p>
+                                    <p class="text-white/80 text-xs mt-1">Add game screenshot</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-orange-400 mb-2">Most Innovative 2023</h3>
+                                <p class="text-gray-300 mb-4">Placeholder for innovative game description and unique mechanics.</p>
+                                <div class="flex gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Godot</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">VR</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="bg-gray-800 rounded-lg overflow-hidden">
+                            <!-- 🖼️ REPLACE THIS: Add your people's choice game screenshot here -->
+                            <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="People's Choice Game 2022" class="w-full h-48 object-cover"> -->
+                            <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
+                                <div class="bg-white/20 rounded-lg p-3 backdrop-blur-sm">
+                                    <p class="text-white font-semibold">👥 People's Choice</p>
+                                    <p class="text-white/80 text-xs mt-1">Add game screenshot</p>
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold text-orange-400 mb-2">People's Choice 2022</h3>
+                                <p class="text-gray-300 mb-4">Placeholder for crowd favorite game and community impact.</p>
+                                <div class="flex gap-2">
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">Unreal</span>
+                                    <span class="bg-gray-700 text-gray-300 px-2 py-1 rounded text-sm">3D</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Event Impact -->
+                <div class="bg-gray-800 rounded-lg p-8">
+                    <h2 class="text-3xl font-bold text-orange-400 mb-6">Community Impact</h2>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-xl font-semibold text-orange-400 mb-4">Regional Growth</h3>
+                            <p class="text-gray-300 mb-4">
+                                Borderland Glitch has become a catalyst for game development in the Southwest region, 
+                                connecting developers across Texas, New Mexico, Arizona, and beyond.
+                            </p>
+                            <ul class="text-gray-300 space-y-2">
+                                <li>• Established El Paso as a game development hub</li>
+                                <li>• Created lasting professional networks</li>
+                                <li>• Inspired new local game development groups</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 class="text-xl font-semibold text-orange-400 mb-4">Career Outcomes</h3>
+                            <p class="text-gray-300 mb-4">
+                                Many participants have leveraged their game jam experience to advance their careers, 
+                                land internships, and start their own game development ventures.
+                            </p>
+                            <ul class="text-gray-300 space-y-2">
+                                <li>• 20+ participants hired by game studios</li>
+                                <li>• 5+ indie studios formed by jam teams</li>
+                                <li>• Multiple games published commercially</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- CONTACT PAGE -->
+    <div id="contact-page" class="page">
+        <section class="pt-24 pb-20 bg-gray-800 min-h-screen">
+            <div class="max-w-4xl mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h1 class="text-5xl md:text-6xl font-bold mb-6 gradient-text">Get In Touch</h1>
+                    <p class="text-xl text-gray-300">
+                        Interested in collaborating, learning more about my work, or discussing opportunities? 
+                        I'd love to hear from you!
+                    </p>
+                </div>
+                
+                <div class="bg-gray-900 rounded-lg p-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <h3 class="text-2xl font-semibold mb-6 text-blue-400">Let's Connect</h3>
+                            <p class="text-gray-300 mb-6">
+                                Whether you're interested in game development mentorship, XR technology consulting, 
+                                or event collaboration, I'm always excited to connect with fellow creators and innovators.
+                            </p>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M20,4H4C2.89,4 2,4.89 2,6V18A2,2 0 0,0 4,20H20A2,2 0 0,0 22,18V6C22,4.89 21.1,4 20,4Z"/>
+                                    </svg>
+                                    <span class="text-gray-300">Georgemolina460@gmail.com</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M6.62,10.79C8.06,13.62 10.38,15.94 13.21,17.38L15.41,15.18C15.69,14.9 16.08,14.82 16.43,14.93C17.55,15.3 18.75,15.5 20,15.5A1,1 0 0,1 21,16.5V20A1,1 0 0,1 20,21A17,17 0 0,1 3,4A1,1 0 0,1 4,3H7.5A1,1 0 0,1 8.5,4C8.5,5.25 8.7,6.45 9.07,7.57C9.18,7.92 9.1,8.31 8.82,8.59L6.62,10.79Z"/>
+                                    </svg>
+                                    <span class="text-gray-300">(915) 702-6722</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <svg class="w-5 h-5 text-blue-400 mr-3" fill="currentColor" viewBox="0 0 24 24">
+                                        <path d="M12,11.5A2.5,2.5 0 0,1 9.5,9A2.5,2.5 0 0,1 12,6.5A2.5,2.5 0 0,1 14.5,9A2.5,2.5 0 0,1 12,11.5M12,2A7,7 0 0,0 5,9C5,14.25 12,22 12,22C12,22 19,14.25 19,9A7,7 0 0,0 12,2Z"/>
+                                    </svg>
+                                    <span class="text-gray-300">El Paso, TX</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-8">
+                                <h4 class="text-lg font-semibold text-blue-400 mb-4">Areas of Expertise</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="bg-blue-600/20 text-blue-400 px-3 py-1 rounded-full text-sm">Game Development</span>
+                                    <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">VR/AR</span>
+                                    <span class="bg-green-600/20 text-green-400 px-3 py-1 rounded-full text-sm">Unity</span>
+                                    <span class="bg-red-600/20 text-red-400 px-3 py-1 rounded-full text-sm">Event Organization</span>
+                                    <span class="bg-yellow-600/20 text-yellow-400 px-3 py-1 rounded-full text-sm">Mentorship</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <form class="space-y-4">
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Name</label>
+                                    <input type="text" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:border-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Email</label>
+                                    <input type="email" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:border-blue-500 focus:outline-none">
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Subject</label>
+                                    <select class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:border-blue-500 focus:outline-none">
+                                        <option>General Inquiry</option>
+                                        <option>Collaboration Opportunity</option>
+                                        <option>Mentorship Request</option>
+                                        <option>Speaking Engagement</option>
+                                        <option>Technical Consulting</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-gray-300 mb-2">Message</label>
+                                    <textarea rows="4" class="w-full bg-gray-800 border border-gray-600 rounded-lg px-4 py-2 text-gray-100 focus:border-blue-500 focus:outline-none" placeholder="Tell me about your project or how I can help..."></textarea>
+                                </div>
+                                <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg font-semibold transition-colors duration-300">
+                                    Send Message
+                                </button>
+                            </form>
+                            <p class="text-sm text-gray-400 mt-4 text-center">
+                                <span class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded">Demo Form</span> - This is a template form
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 py-8 border-t border-gray-700">
+        <div class="max-w-6xl mx-auto px-6 text-center">
+            <p class="text-gray-400">© 2024 George Molina. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Page navigation system
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show selected page
+            const targetPage = document.getElementById(pageId + '-page');
+            if (targetPage) {
+                targetPage.classList.add('active');
+                targetPage.classList.add('page-transition');
+                
+                // Remove transition class after animation
+                setTimeout(() => {
+                    targetPage.classList.remove('page-transition');
+                }, 500);
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('mobile-menu').classList.add('hidden');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Form submission (demo)
+        document.querySelector('form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('This is a demo form. In a real implementation, this would send your message.');
+        });
+
+        // Initialize with home page
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage('home');
+        });
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'95f6d991802d7b2b',t:'MTc1MjU1NzIzOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
