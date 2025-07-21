@@ -37,6 +37,35 @@
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(59, 130, 246, 0.15);
         }
+
+        .card-hoverR {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hoverR:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(248, 2, 2, 0.37);
+        }
+
+        .card-hoverG {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hoverG:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(30, 255, 0, 0.37);
+        }
+
+        .card-hoverO {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hoverO:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(255, 145, 0, 0.37);
+        }
+
+    
         
         .gradient-text {
             background: linear-gradient(135deg, #3b82f6, #1d4ed8);
@@ -143,8 +172,8 @@
                 <div class="hidden md:flex space-x-6">
                     <a href="#" onclick="showPage('home')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Home</a>
                     <a href="#" onclick="showPage('experience')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Experience</a>
-                    <a href="#" onclick="showPage('bandit')" class="nav-link text-gray-300 hover:text-red-400 font-medium">Bandit Studio</a>
-                    <a href="#" onclick="showPage('interactive')" class="nav-link text-gray-300 hover:text-green-400 font-medium">Interactive Tech</a>
+                    <a href="#" onclick="showPage('bandit')" class="nav-link text-gray-300 hover:text-red-400 font-medium">Bandit</a>
+                    <a href="#" onclick="showPage('interactive')" class="nav-link text-gray-300 hover:text-green-400 font-medium">Interactive</a>
                     <a href="#" onclick="showPage('gamejam')" class="nav-link text-gray-300 hover:text-orange-400 font-medium">Game Jam</a>
                     <a href="#" onclick="showPage('contact')" class="nav-link text-gray-300 hover:text-blue-400 font-medium">Contact</a>
                 </div>
@@ -174,11 +203,10 @@
         <section class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-blue-900">
             <div class="max-w-4xl mx-auto px-6 text-center section-fade visible">
                 <h1 class="text-5xl md:text-7xl font-bold mb-6 gradient-text leading-relaxed pb-2">
-                    George Molina
+                    Game Developer. Technical Artist. Creative Problem Solver.
                 </h1>
                 <p class="text-xl md:text-2xl text-gray-300 mb-8 max-w-2xl mx-auto">
-                    Multidisciplinary game developer creating immersive, player-driven experiences across AR, VR, and traditional platforms
-                </p>
+                    I build interactive experiences, crafting mechanics, systems, and visual storytelling that bring ideas to life and connect people through play.
                 <div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
                     <button onclick="showPage('experience')" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg font-semibold transition-all duration-300 hover:scale-105">
                         View My Experience
@@ -196,7 +224,7 @@
                 <h2 class="text-4xl font-bold text-center mb-12 gradient-text">My Organizations</h2>
                 <div class="grid md:grid-cols-3 gap-8">
                     <!-- Bandit Game Studio Card -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('bandit')">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hoverR cursor-pointer" onclick="showPage('bandit')">
                         <div class="h-48 bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center">
                             <img src="https://app.milanote.com/media/p/images/1UBysa1Fh6Mf6q/U0K/Bandit.svg" width="40%" height="40%" alt="Logo">
                         </div>
@@ -208,7 +236,7 @@
                     </div>
 
                     <!-- Interactive Technologies Card -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('interactive')">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hoverG cursor-pointer" onclick="showPage('interactive')">
                         <div class="h-48 bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center">
                             <img src="https://app.milanote.com/media/p/images/1UByWS1Fh6Mf6r/Hva/IT%20white.svg" width="40%" height="40%" alt="Logo">
                         </div>
@@ -220,7 +248,7 @@
                     </div>
 
                     <!-- Borderland Glitch Game Jam Card -->
-                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer" onclick="showPage('gamejam')">
+                    <div class="bg-gray-900 rounded-lg overflow-hidden card-hoverO cursor-pointer" onclick="showPage('gamejam')">
                         <div class="h-48 bg-gradient-to-br from-orange-600 to-orange-800 flex items-center justify-center">
                              <img src="https://app.milanote.com/media/p/images/1UBz1K1Fh6Mf6s/GSU/BG.svg" width="50%" height="50%" alt="Logo">
                         </div>
@@ -233,23 +261,66 @@
                 </div>
             </div>
         </section>
-
-        <!-- Past -->
-        <div class="mb-60">
-            <br>
-            <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center"> Side Projects</h2>
-            <div class="bg-gray-800 rounded-lg p-8">
-                <div class="flex flex-col md:flex-row md:justify-between md:items-start">
-                    <div>
-                        <h3 class="text-2xl font-bold text-blue-400 mb-2">Bachelor of Science in Computer Science</h3>
-                        <p class="text-xl text-gray-300 mb-2">The University of Texas at El Paso</p>
-                        <p class="text-gray-400">GPA: 3.06</p>
+            <!-- Side Projects -->
+            <div class="mb-60 px-4 md:px-8">
+                <br>
+                <br>
+                <h2 class="text-4xl font-bold text-blue-400 mb-8 text-center">Side Projects</h2>
+                <!-- Rip Papper video -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer flex flex-col md:flex-row h-auto md:h-64" onclick="window.open('https://media.milanote.com/p/files/1UDH1W1QW9Ia4r/JmQ/Attempt%202.mp4')">
+                    <!-- Text content - takes up 60% on desktop, full width on mobile -->
+                    <div class="w-full md:w-3/5 p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-400">Mississippi State Women's Basketball Post</h3>
+                        <p class="text-gray-300 mb-4">Assisted the Mississippi State Women’s Basketball marketing team by creating a paper rip transition effect for social media posts. Also provided sample layouts with player info and font options (final versions were completed by their team).</p>
+                        <span class="text-blue-400 hover:text-blue-300 font-medium">View Clip</span>
                     </div>
-                    <span class="text-gray-400 font-medium mt-2 md:mt-0">Graduated: December 2023</span>
+                    <!-- Video content - takes up 40% on desktop, full width on mobile -->
+                    <div class="w-full md:w-2/5 min-h-[260px] md:min-h-full">
+                        <video controls loop autoplay muted class="w-full h-full object-cover">
+                            <source src="https://media.milanote.com/p/files/1UDH1W1QW9Ia4r/JmQ/Attempt%202.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+
+                <br>
+                <br>
+                <!-- Green and Gold video -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer flex flex-col md:flex-row h-auto md:h-64" onclick="window.open('https://media.milanote.com/p/files/1UDH1W1QW9Ia4q/JNF/2025%20Camps.mp4')">
+                            <!-- Video content - takes up 40% on desktop, full width on mobile -->
+                            <div class="w-full md:w-2/5 min-h-[260px] md:min-h-full">
+                                <video controls loop autoplay muted class="w-full h-full object-cover">
+                                    <source src="https://media.milanote.com/p/files/1UDH1W1QW9Ia4q/JNF/2025%20Camps.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <!-- Text content - takes up 60% on desktop, full width on mobile -->
+                            <div class="w-full md:w-3/5 p-6 flex flex-col justify-center">
+                                <h3 class="text-xl font-semibold mb-2 text-blue-400">Baylor Women's Basketball 2025 Champs</h3>
+                                <p class="text-gray-300 mb-4">Helped the Baylor Women’s Basketball marketing team by animating motion graphics for their 2025 champs video. The layout and design were provided by their team; I focused on timing, transitions, and text animation.</p>
+                                <span class="text-blue-400 hover:text-blue-300 font-medium">View Clip</span>
+                            </div>
+                
+                </div>
+                <br>
+                <br>
+                 <!-- Black and white vid -->
+                <div class="bg-gray-900 rounded-lg overflow-hidden card-hover cursor-pointer flex flex-col md:flex-row h-auto md:h-64" onclick="window.open('https://media.milanote.com/p/files/1UDJVy10zMXFfv/c5J/Mic%20Up.mp4')">
+                    <!-- Text content - takes up 60% on desktop, full width on mobile -->
+                    <div class="w-full md:w-3/5 p-6 flex flex-col justify-center">
+                        <h3 class="text-xl font-semibold mb-2 text-blue-400">MIC'D UP</h3>
+                        <p class="text-gray-300 mb-4">Created motion graphics for a Baylor Women’s Basketball podcast promo, bringing their static design to life through animated text, smooth transitions, and pacing adjustments. All visuals were designed by their internal team.</p>
+                        <span class="text-blue-400 hover:text-blue-300 font-medium">View Clip</span>
+                    </div>
+                    <!-- Video content - takes up 40% on desktop, full width on mobile -->
+                    <div class="w-full md:w-2/5 min-h-[260px] md:min-h-full">
+                        <video controls loop autoplay muted class="w-full h-full object-cover">
+                            <source src="https://media.milanote.com/p/files/1UDJVy10zMXFfv/c5J/Mic%20Up.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
                 </div>
             </div>
-        </div>
-
     </div>
 
     <!-- EXPERIENCE PAGE -->
