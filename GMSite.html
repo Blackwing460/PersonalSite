@@ -201,8 +201,8 @@
                 <div class="flex flex-col space-y-3 pt-4">
                     <a href="#" onclick="showPage('home')" class="text-gray-300 hover:text-blue-400 font-medium">Home</a>
                     <a href="#" onclick="showPage('experience')" class="text-gray-300 hover:text-blue-400 font-medium">Experience</a>
-                    <a href="#" onclick="showPage('bandit')" class="text-gray-300 hover:text-blue-400 font-medium">Bandit Studio</a>
-                    <a href="#" onclick="showPage('interactive')" class="text-gray-300 hover:text-blue-400 font-medium">Interactive Tech</a>
+                    <a href="#" onclick="showPage('bandit')" class="text-gray-300 hover:text-blue-400 font-medium">Bandit</a>
+                    <a href="#" onclick="showPage('interactive')" class="text-gray-300 hover:text-blue-400 font-medium">Interactive</a>
                     <a href="#" onclick="showPage('gamejam')" class="text-gray-300 hover:text-blue-400 font-medium">Game Jam</a>
                     <a href="#" onclick="showPage('contact')" class="text-gray-300 hover:text-blue-400 font-medium">Contact</a>
                 </div>
@@ -690,7 +690,7 @@
     <!-- BANDIT GAME STUDIO PAGE -->
      <div id="bandit-page" class="page">
         <div class="mt-16 mb-12">
-            <video controls loop autoplay muted class="w-full h-full sm:h-80 md:h-96 lg:h-[600px] xl:h-[730px] object-cover">
+            <video loop autoplay muted class="w-full h-full sm:h-120 md:h-120 lg:h-[650px] xl:h-[650px] object-cover">
                 <source src="https://media.milanote.com/p/files/1UFb8V1dFHGI8s/IbZ/BANDIT%20website.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -698,7 +698,7 @@
         
         <div class="max-w-6xl mx-auto px-6">
             <div class="text-center">
-                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-white-400">Bandit Game Studio</h1>
+                <h1 class="text-5xl md:text-6xl font-bold mb-6 text-red-400">Bandit Game Studio</h1>
                 <p class="text-xl text-gray-300 max-w-3xl mx-auto">
                     Founded and leading a thriving student game development community with 100+ active members, 
                     fostering the next generation of game developers through mentorship and hands-on experience.
@@ -834,7 +834,7 @@
                             <h3 class="text-xl font-semibold text-red-400 mb-4">Industry Recognition</h3>
                             <p class="text-gray-300 mb-4">
                                 Our students have impressed recruiters and hiring managers across the tech industry. 
-                                We've received feedback that Bandit Studio experience stands out on resumes and in interviews, 
+                                We've received feedback that Bandit Game Studio experience stands out on resumes and in interviews, 
                                 though we can't claim full credit for their individual achievements.
                             </p>
                             <ul class="space-y-2 text-gray-300">
@@ -844,7 +844,7 @@
                                 </li>
                                 <li class="flex items-start">
                                     <span class="text-red-400 mr-2">•</span>
-                                    <span>Recruiters specifically praising Bandit Studio experience</span>
+                                    <span>Recruiters specifically praising Bandit experience</span>
                                 </li>
                                 <li class="flex items-start">
                                     <span class="text-red-400 mr-2">•</span>
@@ -855,7 +855,7 @@
                         <div class="bg-gray-800 rounded-lg p-6">
                             <h3 class="text-xl font-semibold text-red-400 mb-4">Cross-Disciplinary Growth</h3>
                             <p class="text-gray-300 mb-4">
-                                Students from all corners of the university join Bandit Studio, bringing diverse perspectives 
+                                Students from all corners of the university join Bandit Game Studio, bringing diverse perspectives 
                                 and skills that enrich our collaborative environment.
                             </p>
                             <ul class="space-y-2 text-gray-300">
@@ -883,7 +883,6 @@
 
                   <body class="bg-gray-900 min-h-screen p-8">
     <div class="max-w-7xl mx-auto">
-        <h1 class="text-4xl font-bold text-white text-center mb-12">My Projects</h1>
         
         <!-- Two Project Layout -->
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -926,46 +925,42 @@
                 
                 <!-- Project Details -->
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3">GAIA Tours AR App (VR)</h3>
-                    <p class="text-gray-300 text-sm mb-4">An augmented reality application for interactive campus tours and makerspace equipment recognition.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">GAIA Tours</h3>
+                    <p class="text-gray-300 text-sm mb-4">An augmented reality app developed to enhance exploration of the UTEP GAIA Makerspace. It overlays interactive 3D models, safety info, and equipment tutorials onto the real world by scanning designated markers.</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-xs">AR/VR</span>
+                        <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-xs">AR</span>
                         <span class="bg-purple-600/20 text-purple-400 px-2 py-1 rounded text-xs">Mobile App</span>
                         <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-xs">Unity</span>
                     </div>
+                  
                     <button class="bg-gradient-to-r from-red-600 to-purple-600 hover:from-red-700 hover:to-purple-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium" onclick="window.open('https://apps.apple.com/us/app/gaia-tours/id6459264670?platform=iphone')">
-                        View Details
+                        View App
                     </button>
                 </div>
             </div>
 
             <!-- Project 2: Second Project (Template) -->
             <div class="bg-gray-800 rounded-lg overflow-hidden">
-                <div class="h-64 bg-gradient-to-br from-blue-600 to-green-600 flex items-center justify-center relative" id="project2-gallery">
+                <div class="h-64 bg-gradient-to-br from-black-600 to-black-600 flex items-center justify-center relative" id="project2-gallery">
+                
                     <div class="text-center gallery-slide active" data-gallery="project2">
-                        <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                            <p class="text-white font-semibold text-lg">Project 2 Title</p>
-                            <p class="text-white/80 text-sm mt-2">Main Feature</p>
-                            <div class="text-6xl mt-2">🚀</div>
-                        </div>
+                        <video controls loop autoplay muted class="w-full h-full object-cover">
+                            <source src="https://media.milanote.com/p/files/1UGfDi108neX5o/8Gv/Doors.mp4" type="video/mp4" class="w-full h-full object-cover" alt="GAIA Tours AR App">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     <div class="text-center gallery-slide" data-gallery="project2">
-                        <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                            <p class="text-white font-semibold text-lg">💡 Feature 1</p>
-                            <p class="text-white/80 text-sm mt-2">Description of feature 1</p>
-                        </div>
+                        <video controls loop autoplay muted class="w-full h-full object-cover">
+                            <source src="https://media.milanote.com/p/files/1O987u10HT8bd9/OKT/SAloon%20timelapse.mp4" type="video/mp4" class="w-full h-full object-cover" alt="GAIA Tours AR App">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
-                    <div class="text-center gallery-slide" data-gallery="project2">
-                        <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                            <p class="text-white font-semibold text-lg">⚡ Feature 2</p>
-                            <p class="text-white/80 text-sm mt-2">Description of feature 2</p>
-                        </div>
-                    </div>
-                    <div class="text-center gallery-slide" data-gallery="project2">
-                        <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                            <p class="text-white font-semibold text-lg">🎯 Feature 3</p>
-                            <p class="text-white/80 text-sm mt-2">Description of feature 3</p>
-                        </div>
+
+                     <div class="text-center gallery-slide" data-gallery="project2">
+                        <video controls loop autoplay muted class="w-full h-full object-cover">
+                            <source src="https://media.milanote.com/p/files/1L7sBq1RvU8AdW/Crs/Linkedin_Facebook.mp4" type="video/mp4" class="w-full h-full object-cover" alt="GAIA Tours AR App">
+                            Your browser does not support the video tag.
+                        </video>
                     </div>
                     
                     <!-- Navigation buttons -->
@@ -981,22 +976,19 @@
                         <div class="w-2 h-2 rounded-full bg-white indicator active cursor-pointer" onclick="goToSlide('project2', 0)"></div>
                         <div class="w-2 h-2 rounded-full bg-white/50 indicator cursor-pointer" onclick="goToSlide('project2', 1)"></div>
                         <div class="w-2 h-2 rounded-full bg-white/50 indicator cursor-pointer" onclick="goToSlide('project2', 2)"></div>
-                        <div class="w-2 h-2 rounded-full bg-white/50 indicator cursor-pointer" onclick="goToSlide('project2', 3)"></div>
+                       
                     </div>
                 </div>
                 
                 <!-- Project Details -->
                 <div class="p-6">
-                    <h3 class="text-xl font-bold text-white mb-3">Second Project</h3>
-                    <p class="text-gray-300 text-sm mb-4">Description of your second project goes here. Replace this with details about what the project does.</p>
+                    <h3 class="text-xl font-bold text-white mb-3">Project Nova (Ongoing)</h3>
+                    <p class="text-gray-300 text-sm mb-4">Project Nova is a story driven VR game in development that follows Nova on a journey to uncover the truth behind a rogue AI that dismantled a galaxy wide defense network. Players explore diverse worlds such as an old western town, a mysterious ancient temple, a futuristic mall, and a space horror environment, collecting keys and battling robots to stop the AI and restore balance. <br> (The video below is an early preview and not representative of the current build)</p>
                     <div class="flex flex-wrap gap-2 mb-4">
-                        <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-xs">Web App</span>
-                        <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded text-xs">JavaScript</span>
-                        <span class="bg-yellow-600/20 text-yellow-400 px-2 py-1 rounded text-xs">React</span>
+                        <span class="bg-blue-600/20 text-blue-400 px-2 py-1 rounded text-xs">VR</span>
+                        <span class="bg-green-600/20 text-green-400 px-2 py-1 rounded text-xs">Story Driven</span>
+                        <span class="bg-red-600/20 text-red-400 px-2 py-1 rounded text-xs">On Going</span>
                     </div>
-                    <button class="bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white px-4 py-2 rounded-lg transition-all duration-200 text-sm font-medium">
-                        View Details
-                    </button>
                 </div>
             </div>
         </div>
@@ -1043,48 +1035,166 @@
         setInterval(() => {
             nextSlide('gaia');
             nextSlide('project2');
-        }, 5000);
+        }, 15000);
     </script>
     
                         </div>
 
                 <!-- Project Evolution -->
                 <div class="mb-16">
-                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">From Studio to Industry</h2>
-                    <div class="bg-gray-800 rounded-lg p-8">
-                        <div class="text-center mb-6">
-                            <h3 class="text-2xl font-semibold text-red-400 mb-4">The GAIA Tours Success Story</h3>
-                            <p class="text-gray-300 leading-relaxed max-w-4xl mx-auto">
-                                GAIA Tours exemplifies our studio's mission: providing students with real-world development experience 
-                                that leads to professional opportunities. What began as a student-led project in Bandit Studio evolved 
-                                into a full-scale Interactive Technologies application, demonstrating our pipeline from learning to professional deployment.
-                            </p>
+                    <h2 class="text-3xl font-bold text-center text-red-400 mb-8">Heart of the Studio</h2>
+                    
+                </div>
+
+                 <!-- Photo Gallery Section -->
+                <div class="mb-16">
+                    <div class="relative w-full h-96 md:h-[500px] lg:h-[600px] bg-black overflow-hidden rounded-lg shadow-2xl" id="photo-gallery">
+                        
+                        <!-- Photo Slides -->
+                        <div class="gallery-slide active w-full h-full" data-gallery="photos">
+                            <img src="https://media.milanote.com/p/images/1O9cY31R9DOhdL/yH9/IMG_0397.jpg" 
+                                 alt="Mountain landscape" 
+                                 class="w-full h-full object-cover">
                         </div>
-                        <div class="grid md:grid-cols-3 gap-6 mt-8">
-                            <div class="text-center">
-                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <span class="text-white font-bold">1</span>
-                                </div>
-                                <h4 class="text-lg font-semibold text-red-400 mb-2">Studio Concept</h4>
-                                <p class="text-gray-300 text-sm">Student team identifies need for AR makerspace tours</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <span class="text-white font-bold">2</span>
-                                </div>
-                                <h4 class="text-lg font-semibold text-red-400 mb-2">Collaborative Development</h4>
-                                <p class="text-gray-300 text-sm">Cross-departmental teams build functional prototype</p>
-                            </div>
-                            <div class="text-center">
-                                <div class="w-16 h-16 bg-red-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <span class="text-white font-bold">3</span>
-                                </div>
-                                <h4 class="text-lg font-semibold text-red-400 mb-2">Professional Deployment</h4>
-                                <p class="text-gray-300 text-sm">Project transitions to Interactive Technologies for full implementation</p>
-                            </div>
+                        
+                        <div class="gallery-slide w-full h-full" data-gallery="photos">
+                            <video controls loop autoplay muted class="w-full h-full object-cover">
+                                <source src="https://media.milanote.com/p/files/1QRrTx10u7BN2D/eQp/DJI_0232.mp4" type="video/mp4" class="w-full h-full object-cover" alt="GAIA Tours AR App">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+
+                        <div class="gallery-slide w-full h-full" data-gallery="photos">
+                            <img src="https://app.milanote.com/media/p/images/1PAqbX19qI2W3o/tmG/IMG_0506.jpg" 
+                                 alt="Lake reflection" 
+                                 class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gallery-slide w-full h-full" data-gallery="photos">
+                            <img src="https://media.milanote.com/p/images/1O98Af1R9DOhdE/69F/IMG_0304.jpg" 
+                                 alt="Desert sunset" 
+                                 class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gallery-slide w-full h-full" data-gallery="photos">
+                            <img src="https://media.milanote.com/p/images/1O9Svu1P9bHo7Q/Nh3/Action-Shots-32.jpg" 
+                                 alt="Ocean waves" 
+                                 class="w-full h-full object-cover">
+                        </div>
+
+                        <div class="gallery-slide w-full h-full" data-gallery="photos">
+                            <img src="https://app.milanote.com/media/p/images/1QIKkL1OQCT9cm/KUT/1QIKkL1OQCT9cm.jpeg" 
+                                 alt="Starry night" 
+                                 class="w-full h-full object-cover">
+                        </div>
+                        
+                        <!-- Navigation buttons -->
+                        <button onclick="previousSlide('photos')" class="absolute left-6 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-14 h-14 flex items-center justify-center transition-all duration-300 text-2xl font-bold shadow-xl backdrop-blur-sm">
+                            ‹
+                        </button>
+                        <button onclick="nextSlide('photos')" class="absolute right-6 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full w-14 h-14 flex items-center justify-center transition-all duration-300 text-2xl font-bold shadow-xl backdrop-blur-sm">
+                            ›
+                        </button>
+                        
+                        <!-- Slide indicators -->
+                        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-4">
+                            <div class="w-3 h-3 rounded-full bg-white photo-indicator active cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 0)"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/40 photo-indicator cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 1)"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/40 photo-indicator cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 2)"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/40 photo-indicator cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 3)"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/40 photo-indicator cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 4)"></div>
+                            <div class="w-3 h-3 rounded-full bg-white/40 photo-indicator cursor-pointer transition-all duration-300 hover:scale-125 shadow-lg" onclick="goToSlide('photos', 5)"></div>
+                        </div>
+
+                        <!-- Photo counter -->
+                        <div class="absolute top-8 right-8 bg-black/50 text-white px-4 py-2 rounded-full text-sm font-medium backdrop-blur-sm">
+                            <span id="current-photo">1</span> / <span id="total-photos">6</span>
                         </div>
                     </div>
                 </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        let currentSlidesg = {
+            gaia: 0,
+            project2: 0,
+            photos: 0
+        };
+
+        function updatePhotoCounter() {
+            const currentPhoto = document.getElementById('current-photo');
+            if (currentPhoto) {
+                currentPhoto.textContent = currentSlidesg.photos + 1;
+            }
+        }
+
+        function showSlide(gallery, index) {
+            const slides = document.querySelectorAll(`[data-gallery="${gallery}"]`);
+            
+            if (gallery === 'photos') {
+                const indicators = document.querySelectorAll('.photo-indicator');
+                
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                
+                indicators.forEach((indicator, i) => {
+                    if (i === index) {
+                        indicator.classList.add('active');
+                        indicator.style.backgroundColor = 'white';
+                    } else {
+                        indicator.classList.remove('active');
+                        indicator.style.backgroundColor = 'rgba(255, 255, 255, 0.4)';
+                    }
+                });
+                
+                currentSlidesg[gallery] = index;
+                updatePhotoCounter();
+            } else {
+                const indicators = document.querySelector(`#${gallery}-gallery`).querySelectorAll('.indicator');
+                
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                
+                indicators.forEach((indicator, i) => {
+                    indicator.classList.toggle('active', i === index);
+                });
+                
+                currentSlidesg[gallery] = index;
+            }
+        }
+
+        function nextSlide(gallery) {
+            const slides = document.querySelectorAll(`[data-gallery="${gallery}"]`);
+            const nextIndex = (currentSlidesg[gallery] + 1) % slides.length;
+            showSlide(gallery, nextIndex);
+        }
+
+        function previousSlide(gallery) {
+            const slides = document.querySelectorAll(`[data-gallery="${gallery}"]`);
+            const prevIndex = (currentSlidesg[gallery] - 1 + slides.length) % slides.length;
+            showSlide(gallery, prevIndex);
+        }
+
+        function goToSlide(gallery, index) {
+            showSlide(gallery, index);
+        }
+
+        // Initialize photo gallery
+        document.addEventListener('DOMContentLoaded', function() {
+            updatePhotoCounter();
+        });
+
+        // Auto-advance slides every 15 seconds
+        setInterval(() => {
+            nextSlide('gaia');
+            nextSlide('project2');
+        }, 15000);
+    </script>
+                
             </div>
         </section>
     </div>
