@@ -1276,85 +1276,338 @@
                     </div>
                 </div>
 
-                <!-- VR Museum Project -->
+                 <!-- Projects Section -->
+        <div class="max-w-6xl mx-auto">
+
+            <!-- VR Museum Project -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-green-400 mb-8">VR Museum Experience</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div>
+                        <p class="text-gray-300 mb-6 leading-relaxed">
+                            Developed an immersive virtual museum that allows students to explore historical artifacts, 
+                            scientific concepts, and cultural exhibits in a fully interactive 3D environment. The experience 
+                            supports multiple users simultaneously and includes guided tours with educational narration.
+                        </p>
+                        <div class="space-y-3">
+                            <div class="flex items-center">
+                                <span class="text-green-400 mr-3">✓</span>
+                                <span class="text-gray-300">Multi-user VR support for collaborative learning</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-400 mr-3">✓</span>
+                                <span class="text-gray-300">Interactive 3D artifacts with detailed information</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-400 mr-3">✓</span>
+                                <span class="text-gray-300">Guided educational tours and self-exploration modes</span>
+                            </div>
+                            <div class="flex items-center">
+                                <span class="text-green-400 mr-3">✓</span>
+                                <span class="text-gray-300">Cross-platform compatibility (Oculus, HoloLens)</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- VR Museum Gallery -->
+                    <div class="relative  rounded-lg h-64 overflow-hidden">
+                        <!-- Gallery Images -->
+                        <div class="gallery-container h-full relative" data-gallery="museum">
+                            <!-- Image 1 -->
+                            <div class="gallery-slide active absolute inset-0 flex items-center justify-center">
+                            <img src="https://app.milanote.com/media/p/images/1UHJxv1Zo1Ezfl/UA8/1.png" class="w-full h-full object-cover rounded-lg">     
+                            </div>
+                            <!-- Image 2 -->
+                            <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                <img src="https://app.milanote.com/media/p/images/1UHJxv1Zo1Ezfn/vCO/2-0vjnM.png" class=" object-cover rounded-lg">   
+                            </div>
+                            
+                            <!-- Image 3 -->
+                            <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                 <img src="https://app.milanote.com/media/p/images/1UDLjJ1SRorO3a/7C8/20241204_132412.jpg" class=" object-cover rounded-lg">
+                            </div>
+                        </div>
+                        
+                        <!-- Navigation Buttons -->
+                        <button class="gallery-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('museum', -1)">‹</button>
+                        <button class="gallery-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('museum', 1)">›</button>
+                        
+                        <!-- Dots Indicator -->
+                        <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                            <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors active" onclick="goToSlide('museum', 0)"></button>
+                            <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('museum', 1)"></button>
+                            <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('museum', 2)"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+                <!-- VR Theater Project -->
                 <div class="mb-16">
-                    <h2 class="text-3xl font-bold text-green-400 mb-8">VR Museum Experience</h2>
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">VR Theater</h2>
                     <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- VR Theater Gallery -->
+                        <div class="relative bg-gradient-to-br from-black-600 to-black-800 rounded-lg h-64 overflow-hidden">
+                            <!-- Gallery Images -->
+                            <div class="gallery-container h-full relative" data-gallery="theater">
+                                <!-- Image 1 -->
+                                <div class="gallery-slide active absolute inset-0 flex items-center justify-center">
+                                   <img src="https://app.milanote.com/media/p/images/1UGtxG1uuE6ebb/cus/1000000030-IBE0Q.jpg" class=" object-cover rounded-lg">
+                                </div>
+                                <!-- Image 2 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <video controls loop autoplay muted class =" object-cover rounded-lg">
+                                        <source src="https://media.milanote.com/p/files/1UHKUP1HyT7g53/Y0Z/com.DefaultCompany.VRMultiplayer-20250423-194652-0%20%281%29.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video>
+                                </div>
+                                <!-- Image 3 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <img src="https://app.milanote.com/media/p/images/1UHKqj1Zo1Ezfp/Q8G/IMG_1788-mOMgd.jpg" class=" object-cover rounded-lg">
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button class="gallery-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('theater', -1)">‹</button>
+                            <button class="gallery-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('theater', 1)">›</button>
+                            
+                            <!-- Dots Indicator -->
+                            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors active" onclick="goToSlide('theater', 0)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('theater', 1)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('theater', 2)"></button>
+                            </div>
+                        </div>
                         <div>
                             <p class="text-gray-300 mb-6 leading-relaxed">
-                                Developed an immersive virtual museum that allows students to explore historical artifacts, 
-                                scientific concepts, and cultural exhibits in a fully interactive 3D environment. The experience 
-                                supports multiple users simultaneously and includes guided tours with educational narration.
+                                Created an immersive virtual theater experience that brings live performances to VR. 
+                                Users can attend concerts, plays, and educational presentations in a shared virtual space 
+                                with realistic acoustics and interactive elements.
                             </p>
                             <div class="space-y-3">
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Multi-user VR support for collaborative learning</span>
+                                    <span class="text-gray-300">Live streaming integration for real-time performances</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Interactive 3D artifacts with detailed information</span>
+                                    <span class="text-gray-300">Spatial audio with realistic theater acoustics</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Guided educational tours and self-exploration modes</span>
+                                    <span class="text-gray-300">Interactive audience participation features</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Cross-platform compatibility (Oculus, HoloLens)</span>
+                                    <span class="text-gray-300">Multiple theater environments and seating options</span>
                                 </div>
-                            </div>
-                        </div>
-                        <!-- 🖼️ REPLACE THIS: Add your VR Museum screenshot here -->
-                        <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="VR Museum Experience" class="w-full h-64 object-cover rounded-lg"> -->
-                        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 flex items-center justify-center">
-                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                                <p class="text-white font-semibold text-lg">🏛️ VR Museum</p>
-                                <p class="text-white/80 text-sm mt-2">Replace with your VR museum screenshot</p>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- VR Theater Project -->
+                <!-- VR Training Simulator Project -->
                 <div class="mb-16">
-                    <h2 class="text-3xl font-bold text-green-400 mb-8">Multiplayer VR Theater</h2>
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">VR Training Simulator</h2>
                     <div class="grid md:grid-cols-2 gap-12 items-center">
-                        <!-- 🖼️ REPLACE THIS: Add your VR Theater screenshot here -->
-                        <!-- To add image: Replace the entire div below with: <img src="YOUR_IMAGE_URL" alt="VR Theater Experience" class="w-full h-64 object-cover rounded-lg"> -->
-                        <div class="bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 flex items-center justify-center">
-                            <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
-                                <p class="text-white font-semibold text-lg">🎭 VR Theater</p>
-                                <p class="text-white/80 text-sm mt-2">Replace with your VR theater screenshot</p>
-                            </div>
-                        </div>
                         <div>
                             <p class="text-gray-300 mb-6 leading-relaxed">
-                                Created a virtual theater environment where students can gather to watch educational content, 
-                                participate in discussions, and engage in collaborative learning activities. The system supports 
-                                real-time voice communication and shared viewing experiences.
+                                Built a comprehensive VR training platform for professional skill development across multiple industries. 
+                                The simulator provides hands-on practice in safe virtual environments with real-time performance 
+                                analytics and adaptive learning paths tailored to individual progress.
                             </p>
                             <div class="space-y-3">
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Synchronized video playback for group viewing</span>
+                                    <span class="text-gray-300">Industry-specific training modules (medical, aviation, manufacturing)</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Real-time voice chat and spatial audio</span>
+                                    <span class="text-gray-300">Real-time performance tracking and analytics</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Interactive presentation tools for educators</span>
+                                    <span class="text-gray-300">Adaptive difficulty based on user skill level</span>
                                 </div>
                                 <div class="flex items-center">
                                     <span class="text-green-400 mr-3">✓</span>
-                                    <span class="text-gray-300">Customizable theater environments</span>
+                                    <span class="text-gray-300">Multiplayer scenarios for team-based training</span>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- VR Training Gallery -->
+                        <div class="relative bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 overflow-hidden">
+                            <!-- Gallery Images -->
+                            <div class="gallery-container h-full relative" data-gallery="training">
+                                <!-- Image 1 -->
+                                <div class="gallery-slide active absolute inset-0 flex items-center justify-center">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Training Main Interface" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">🎯 VR Training - Main Interface</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your training screenshot</p>
+                                    </div>
+                                </div>
+                                <!-- Image 2 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Training Medical Module" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">🏥 VR Training - Medical Module</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your medical training screenshot</p>
+                                    </div>
+                                </div>
+                                <!-- Image 3 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Training Analytics" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">📊 VR Training - Analytics</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your analytics screenshot</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button class="gallery-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('training', -1)">‹</button>
+                            <button class="gallery-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('training', 1)">›</button>
+                            
+                            <!-- Dots Indicator -->
+                            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors active" onclick="goToSlide('training', 0)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('training', 1)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('training', 2)"></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- VR Social Platform Project -->
+                <div class="mb-16">
+                    <h2 class="text-3xl font-bold text-green-400 mb-8">VR Social Platform</h2>
+                    <div class="grid md:grid-cols-2 gap-12 items-center">
+                        <!-- VR Social Gallery -->
+                        <div class="relative bg-gradient-to-br from-green-600 to-green-800 rounded-lg h-64 overflow-hidden">
+                            <!-- Gallery Images -->
+                            <div class="gallery-container h-full relative" data-gallery="social">
+                                <!-- Image 1 -->
+                                <div class="gallery-slide active absolute inset-0 flex items-center justify-center">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Social Main Hub" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">🌐 VR Social - Main Hub</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your social hub screenshot</p>
+                                    </div>
+                                </div>
+                                <!-- Image 2 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Social Avatar System" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">👤 VR Social - Avatar System</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your avatar screenshot</p>
+                                    </div>
+                                </div>
+                                <!-- Image 3 -->
+                                <div class="gallery-slide absolute inset-0 flex items-center justify-center opacity-0">
+                                    <!-- 🖼️ REPLACE THIS: <img src="YOUR_IMAGE_URL" alt="VR Social Events" class="w-full h-full object-cover"> -->
+                                    <div class="bg-white/20 rounded-lg p-4 backdrop-blur-sm">
+                                        <p class="text-white font-semibold text-lg">🎉 VR Social - Virtual Events</p>
+                                        <p class="text-white/80 text-sm mt-2">Replace with your events screenshot</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Navigation Buttons -->
+                            <button class="gallery-prev absolute left-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('social', -1)">‹</button>
+                            <button class="gallery-next absolute right-2 top-1/2 transform -translate-y-1/2 bg-black/50 text-white rounded-full w-8 h-8 flex items-center justify-center hover:bg-black/70 transition-colors" onclick="changeSlide('social', 1)">›</button>
+                            
+                            <!-- Dots Indicator -->
+                            <div class="absolute bottom-2 left-1/2 transform -translate-x-1/2 flex space-x-2">
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors active" onclick="goToSlide('social', 0)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('social', 1)"></button>
+                                <button class="gallery-dot w-2 h-2 rounded-full bg-white/50 hover:bg-white/80 transition-colors" onclick="goToSlide('social', 2)"></button>
+                            </div>
+                        </div>
+                        <div>
+                            <p class="text-gray-300 mb-6 leading-relaxed">
+                                Developed a next-generation VR social platform that connects people in immersive virtual worlds. 
+                                Users can create custom avatars, build virtual spaces, host events, and interact naturally through 
+                                advanced gesture recognition and spatial voice chat technology.
+                            </p>
+                            <div class="space-y-3">
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Advanced avatar customization with facial tracking</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">User-generated virtual worlds and spaces</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Spatial voice chat with realistic audio positioning</span>
+                                </div>
+                                <div class="flex items-center">
+                                    <span class="text-green-400 mr-3">✓</span>
+                                    <span class="text-gray-300">Virtual events hosting up to 100+ concurrent users</span>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <script>
+            let currentSlides1 = {
+                museum: 0,
+                theater: 0,
+                training: 0,
+                social: 0
+            };
+
+            function changeSlide(gallery, direction) {
+                const container = document.querySelector(`[data-gallery="${gallery}"]`);
+                const slides = container.querySelectorAll('.gallery-slide');
+                const dots = container.parentElement.querySelectorAll('.gallery-dot');
+                
+                // Hide current slide
+                slides[currentSlides1[gallery]].style.opacity = '0';
+                dots[currentSlides1[gallery]].classList.remove('active');
+                
+                // Calculate new slide index
+                currentSlides1[gallery] += direction;
+                if (currentSlides1[gallery] >= slides.length) {
+                    currentSlides1[gallery] = 0;
+                } else if (currentSlides1[gallery] < 0) {
+                    currentSlides1[gallery] = slides.length - 1;
+                }
+                
+                // Show new slide
+                slides[currentSlides1[gallery]].style.opacity = '1';
+                dots[currentSlides1[gallery]].classList.add('active');
+            }
+
+            function goToSlide(gallery, slideIndex) {
+                const container = document.querySelector(`[data-gallery="${gallery}"]`);
+                const slides = container.querySelectorAll('.gallery-slide');
+                const dots = container.parentElement.querySelectorAll('.gallery-dot');
+                
+                // Hide current slide
+                slides[currentSlides1[gallery]].style.opacity = '0';
+                dots[currentSlides1[gallery]].classList.remove('active');
+                
+                // Set new slide
+                currentSlides1[gallery] = slideIndex;
+                
+                // Show new slide
+                slides[currentSlides1[gallery]].style.opacity = '1';
+                dots[currentSlides1[gallery]].classList.add('active');
+            }
+
+            // Auto-advance slides every 5 seconds
+            setInterval(() => {
+                changeSlide('museum', 1);
+                changeSlide('theater', 1);
+                changeSlide('training', 1);
+                changeSlide('social', 1);
+            }, 20000);
+        </script>
 
                 <!-- extras -->
                 <div class="mb-16">
